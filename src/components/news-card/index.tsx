@@ -1,4 +1,6 @@
-const NewsCard = ({
+import React from "react";
+
+const NewsCard = React.memo(({
   image,
   datetime,
   source,
@@ -28,6 +30,7 @@ const NewsCard = ({
     >
       <img
         src={image}
+        loading="lazy"
         alt="news_image_card"
         className="w-[100px] h-[100px] sm:w-full sm:h-[190px] object-center object-cover"
       />
@@ -44,6 +47,6 @@ const NewsCard = ({
       </div>
     </a>
   );
-};
+});
 
 export default NewsCard;
