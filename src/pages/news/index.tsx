@@ -25,9 +25,9 @@ const News = () => {
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-y-4 sm:gap-y-16 sm:gap-x-4 sm:mt-8 lg:mt-16">
         {data &&
           data.length > 0 &&
-          data?.map((item: any, index: number) => (
+          data?.map((item: any) => (
             <NewsCard
-              key={index}
+              key={item.id}
               image={item.image}
               source={item.source}
               url={item.url}
