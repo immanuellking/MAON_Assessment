@@ -1,12 +1,13 @@
 import { useQuery } from "@tanstack/react-query";
 import NewsCard from "../../components/news-card";
 import NewsCardSkeleton from "../../components/skeleton";
+import Error from "../../components/error";
 
 const News = () => {
   const API_URL = `https://finnhub.io/api/v1/news?category=general&token=${
     import.meta.env.VITE_NEWS_API_KEY
   }`;
-  const { data, isFetching } = useQuery({
+  const { data, isFetching, isError } = useQuery({
     queryKey: ["news"],
     queryFn: () => {
       return fetch(`${API_URL}`).then((response) => response.json());
@@ -21,6 +22,8 @@ const News = () => {
       </h1>
 
       {isFetching && <NewsCardSkeleton />}
+
+      {isError && <Error />}
 
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-y-4 sm:gap-y-16 sm:gap-x-4 sm:mt-8 lg:mt-16">
         {data &&
