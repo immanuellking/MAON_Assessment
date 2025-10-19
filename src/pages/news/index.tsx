@@ -13,8 +13,7 @@ const News = () => {
       return fetch(`${API_URL}`).then((response) => response.json());
     },
   });
-
-  console.log(data);
+  
   return (
     <section className="sm:w-[90%] mx-auto">
       <h1 className="font-rubik font-bold sm:font-medium text-2xl sm:text-5xl text-white px-2 sm:px-0 py-4">
